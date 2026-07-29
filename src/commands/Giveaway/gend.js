@@ -121,7 +121,7 @@ export default {
         const newRow = createGiveawayButtons(true);
 
         await message.edit({
-            content: "🎉 **GIVEAWAY ENDED** 🎉",
+            content: " **GIVEAWAY ENDED** ",
             embeds: [newEmbed],
             components: [newRow],
         });
@@ -131,7 +131,7 @@ export default {
                 .map((id) => `<@${id}>`)
                 .join(",");
             const winnerPingMsg = await channel.send({
-                content: `🎉 CONGRATULATIONS ${winnerMentions}! You won the **${updatedGiveaway.prize}** giveaway! Please contact the host <@${updatedGiveaway.hostId}> to claim your prize.`,
+                content: ` CONGRATULATIONS ${winnerMentions}! You won the **${updatedGiveaway.prize}** giveaway! Please contact the host <@${updatedGiveaway.hostId}> to claim your prize.`,
             });
             updatedGiveaway.winnerPingMessageId = winnerPingMsg.id;
             await saveGiveaway(interaction.client, interaction.guildId, updatedGiveaway);
@@ -181,7 +181,7 @@ export default {
         return InteractionHelper.safeReply(interaction, {
             embeds: [
                 successEmbed(
-                    "Giveaway Ended ✅",
+                    "Giveaway Ended ",
                     `Successfully ended the giveaway for **${updatedGiveaway.prize}** in ${channel}. Selected ${winners.length} winner(s) from ${endResult.participantCount} entries.`,
                 ),
             ],
