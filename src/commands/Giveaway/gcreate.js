@@ -116,7 +116,7 @@ export default {
         const row = createGiveawayButtons(false);
 
         const giveawayMessage = await targetChannel.send({
-            content: "🎉 **NEW GIVEAWAY** 🎉",
+            content: " **NEW GIVEAWAY** ",
             embeds: [embed],
             components: [row],
         });
@@ -174,7 +174,7 @@ export default {
         await InteractionHelper.safeReply(interaction, {
             embeds: [
                 successEmbed(
-                    `Giveaway Started! 🎉`,
+                    `Giveaway Started!`,
                     `A new giveaway for **${prizeName}** has been started in ${targetChannel} and will end in **${durationString}**.`,
                 ),
             ],
