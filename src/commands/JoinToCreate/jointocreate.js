@@ -200,7 +200,7 @@ async function handleSetupSubcommand(interaction, client) {
         logger.info(`Successfully created Join to Create system in guild ${guildId}`);
 
         const responseEmbed = successEmbed(
-            '✅ Setup Complete',
+            'Setup Complete',
             `Created Join to Create channel: ${triggerChannel}\n\n` +
             `**Settings:**\n` +
             `• Template: \`${nameTemplate}\`\n` +
@@ -258,22 +258,22 @@ async function handleConfigSubcommand(interaction, client) {
 
         const nameButton = new ButtonBuilder()
             .setCustomId(`jtc_config_name_${triggerChannel.id}`)
-            .setLabel('📝 Name Template')
+            .setLabel('Name Template')
             .setStyle(ButtonStyle.Primary);
 
         const limitButton = new ButtonBuilder()
             .setCustomId(`jtc_config_limit_${triggerChannel.id}`)
-            .setLabel('👥 User Limit')
+            .setLabel('User Limit')
             .setStyle(ButtonStyle.Primary);
 
         const bitrateButton = new ButtonBuilder()
             .setCustomId(`jtc_config_bitrate_${triggerChannel.id}`)
-            .setLabel('🎵 Bitrate')
+            .setLabel('Bitrate')
             .setStyle(ButtonStyle.Primary);
 
         const deleteButton = new ButtonBuilder()
             .setCustomId(`jtc_config_delete_${triggerChannel.id}`)
-            .setLabel('🗑️ Remove Channel')
+            .setLabel('Remove Channel')
             .setStyle(ButtonStyle.Danger);
 
         const row = new ActionRowBuilder().addComponents(nameButton, limitButton, bitrateButton, deleteButton);
@@ -303,7 +303,7 @@ async function handleConfigSubcommand(interaction, client) {
                 
                 if (!hasManageGuildPermission(buttonInteraction.member)) {
                     await buttonInteraction.reply({
-                        content: '❌ You need **Manage Server** permission to use these controls.',
+                        content: 'You need **Manage Server** permission to use these controls.',
                         flags: MessageFlags.Ephemeral
                     });
                     return;
@@ -332,7 +332,7 @@ async function handleConfigSubcommand(interaction, client) {
                 }
 
                 await buttonInteraction.reply({
-                    content: `❌ ${userMessage}`,
+                    content: `${userMessage}`,
                     flags: MessageFlags.Ephemeral
                 }).catch(() => {});
             }
@@ -412,7 +412,7 @@ async function handleNameTemplateModal(interaction, triggerChannel, currentConfi
 
         if (!hasManageGuildPermission(modalSubmission.member)) {
             await modalSubmission.reply({
-                content: '❌ You need **Manage Server** permission to modify these settings.',
+                content: 'You need **Manage Server** permission to modify these settings.',
                 flags: MessageFlags.Ephemeral
             });
             return;
@@ -480,7 +480,7 @@ async function handleUserLimitModal(interaction, triggerChannel, currentConfig, 
 
         if (!hasManageGuildPermission(modalSubmission.member)) {
             await modalSubmission.reply({
-                content: '❌ You need **Manage Server** permission to modify these settings.',
+                content: 'You need **Manage Server** permission to modify these settings.',
                 flags: MessageFlags.Ephemeral
             });
             return;
@@ -548,7 +548,7 @@ async function handleBitrateModal(interaction, triggerChannel, currentConfig, cl
 
         if (!hasManageGuildPermission(modalSubmission.member)) {
             await modalSubmission.reply({
-                content: '❌ You need **Manage Server** permission to modify these settings.',
+                content: 'You need **Manage Server** permission to modify these settings.',
                 flags: MessageFlags.Ephemeral
             });
             return;
@@ -591,11 +591,11 @@ async function handleChannelDeletion(interaction, triggerChannel, currentConfig,
         const confirmRow = new ActionRowBuilder().addComponents(
             new ButtonBuilder()
                 .setCustomId(`jtc_delete_confirm_${triggerChannel.id}`)
-                .setLabel('🗑️ Yes, Delete')
+                .setLabel('Yes, Delete')
                 .setStyle(ButtonStyle.Danger),
             new ButtonBuilder()
                 .setCustomId(`jtc_delete_cancel_${triggerChannel.id}`)
-                .setLabel('❌ Cancel')
+                .setLabel('Cancel')
                 .setStyle(ButtonStyle.Secondary)
         );
 
@@ -620,7 +620,7 @@ async function handleChannelDeletion(interaction, triggerChannel, currentConfig,
                 
                 if (!hasManageGuildPermission(buttonInteraction.member)) {
                     await buttonInteraction.reply({
-                        content: '❌ You need **Manage Server** permission to remove channels.',
+                        content: 'You need **Manage Server** permission to remove channels.',
                         flags: MessageFlags.Ephemeral
                     });
                     return;
